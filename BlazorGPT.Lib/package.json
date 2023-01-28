@@ -1,0 +1,24 @@
+{
+  "name": "dioptra",
+  "version": "0.0.0",
+  "description": "Node build steps for Blazor GPT",
+  "main": "server.js",
+  "scripts": {
+    "build-theme": "sass --update --no-color --unicode --style=expanded --load-path=node_modules --no-source-map WebAssets/Styles/Theme.scss wwwroot/css/dioptra.css",
+    "build-min-theme": "sass --update --no-color --unicode --style=compressed --load-path=node_modules --no-source-map WebAssets/Styles/Theme.scss wwwroot/css/dioptra.min.css"
+  },
+  "keywords": [],
+  "author": "Dioptra",
+  "license": "SEE LICENSE IN ../LICENSE.md",
+  "devDependencies": {
+    "material-components-web": "14.0.0",
+    "regexp": "1.0.0",
+    "sass": "1.39.2",
+    "source-map-loader": "4.0.1",
+    "terser": "^5.15.1",
+    "ts-loader": "^9.4.1",
+    "typescript": "^4.8.4",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}

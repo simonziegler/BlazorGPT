@@ -3,18 +3,75 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorGPT", "BlazorGPT\BlazorGPT.csproj", "{045BD9BA-5799-4C9D-8F48-66A2E3C21BA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorGPT.Lib", "BlazorGPT.Lib\BlazorGPT.Lib.csproj", "{0350F9A2-5E6F-45A9-BBBD-C0FD1D5CE585}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorGPT.Server", "BlazorGPT.Server\BlazorGPT.Server.csproj", "{87D67CB7-9476-4ED7-BA5E-ED19723535DC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorGPT.WebAssembly", "BlazorGPT.WebAssembly\BlazorGPT.WebAssembly.csproj", "{07F5E73A-9CB6-44D9-9D74-16F3D493109C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{416A7AD3-E58D-4676-923F-E2A286666E5B}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		LICENSE.md = LICENSE.md
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug_Server|Any CPU = Debug_Server|Any CPU
+		Debug_WebAssembly|Any CPU = Debug_WebAssembly|Any CPU
 		Debug|Any CPU = Debug|Any CPU
+		Re3lease_WebAssembly|Any CPU = Re3lease_WebAssembly|Any CPU
+		Release_Server|Any CPU = Release_Server|Any CPU
+		Release_WebAssembly|Any CPU = Release_WebAssembly|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{045BD9BA-5799-4C9D-8F48-66A2E3C21BA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{045BD9BA-5799-4C9D-8F48-66A2E3C21BA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{045BD9BA-5799-4C9D-8F48-66A2E3C21BA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{045BD9BA-5799-4C9D-8F48-66A2E3C21BA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0350F9A2-5E6F-45A9-BBBD-C0FD1D5CE585}.Debug_Server|Any CPU.ActiveCfg = Debug_Server|Any CPU
+		{0350F9A2-5E6F-45A9-BBBD-C0FD1D5CE585}.Debug_Server|Any CPU.Build.0 = Debug_Server|Any CPU
+		{0350F9A2-5E6F-45A9-BBBD-C0FD1D5CE585}.Debug_WebAssembly|Any CPU.ActiveCfg = Debug_WebAssembly|Any CPU
+		{0350F9A2-5E6F-45A9-BBBD-C0FD1D5CE585}.Debug_WebAssembly|Any CPU.Build.0 = Debug_WebAssembly|Any CPU
+		{0350F9A2-5E6F-45A9-BBBD-C0FD1D5CE585}.Debug|Any CPU.ActiveCfg = Debug_Server|Any CPU
+		{0350F9A2-5E6F-45A9-BBBD-C0FD1D5CE585}.Debug|Any CPU.Build.0 = Debug_Server|Any CPU
+		{0350F9A2-5E6F-45A9-BBBD-C0FD1D5CE585}.Re3lease_WebAssembly|Any CPU.ActiveCfg = Re3lease_WebAssembly|Any CPU
+		{0350F9A2-5E6F-45A9-BBBD-C0FD1D5CE585}.Re3lease_WebAssembly|Any CPU.Build.0 = Re3lease_WebAssembly|Any CPU
+		{0350F9A2-5E6F-45A9-BBBD-C0FD1D5CE585}.Release_Server|Any CPU.ActiveCfg = Release_Server|Any CPU
+		{0350F9A2-5E6F-45A9-BBBD-C0FD1D5CE585}.Release_Server|Any CPU.Build.0 = Release_Server|Any CPU
+		{0350F9A2-5E6F-45A9-BBBD-C0FD1D5CE585}.Release_WebAssembly|Any CPU.ActiveCfg = Release_WebAssembly|Any CPU
+		{0350F9A2-5E6F-45A9-BBBD-C0FD1D5CE585}.Release_WebAssembly|Any CPU.Build.0 = Release_WebAssembly|Any CPU
+		{0350F9A2-5E6F-45A9-BBBD-C0FD1D5CE585}.Release|Any CPU.ActiveCfg = Release_Server|Any CPU
+		{0350F9A2-5E6F-45A9-BBBD-C0FD1D5CE585}.Release|Any CPU.Build.0 = Release_Server|Any CPU
+		{87D67CB7-9476-4ED7-BA5E-ED19723535DC}.Debug_Server|Any CPU.ActiveCfg = Debug_Server|Any CPU
+		{87D67CB7-9476-4ED7-BA5E-ED19723535DC}.Debug_Server|Any CPU.Build.0 = Debug_Server|Any CPU
+		{87D67CB7-9476-4ED7-BA5E-ED19723535DC}.Debug_WebAssembly|Any CPU.ActiveCfg = Debug_WebAssembly|Any CPU
+		{87D67CB7-9476-4ED7-BA5E-ED19723535DC}.Debug_WebAssembly|Any CPU.Build.0 = Debug_WebAssembly|Any CPU
+		{87D67CB7-9476-4ED7-BA5E-ED19723535DC}.Debug|Any CPU.ActiveCfg = Debug_Server|Any CPU
+		{87D67CB7-9476-4ED7-BA5E-ED19723535DC}.Debug|Any CPU.Build.0 = Debug_Server|Any CPU
+		{87D67CB7-9476-4ED7-BA5E-ED19723535DC}.Re3lease_WebAssembly|Any CPU.ActiveCfg = Re3lease_WebAssembly|Any CPU
+		{87D67CB7-9476-4ED7-BA5E-ED19723535DC}.Re3lease_WebAssembly|Any CPU.Build.0 = Re3lease_WebAssembly|Any CPU
+		{87D67CB7-9476-4ED7-BA5E-ED19723535DC}.Release_Server|Any CPU.ActiveCfg = Release_Server|Any CPU
+		{87D67CB7-9476-4ED7-BA5E-ED19723535DC}.Release_Server|Any CPU.Build.0 = Release_Server|Any CPU
+		{87D67CB7-9476-4ED7-BA5E-ED19723535DC}.Release_WebAssembly|Any CPU.ActiveCfg = Release_WebAssembly|Any CPU
+		{87D67CB7-9476-4ED7-BA5E-ED19723535DC}.Release_WebAssembly|Any CPU.Build.0 = Release_WebAssembly|Any CPU
+		{87D67CB7-9476-4ED7-BA5E-ED19723535DC}.Release|Any CPU.ActiveCfg = Release_Server|Any CPU
+		{87D67CB7-9476-4ED7-BA5E-ED19723535DC}.Release|Any CPU.Build.0 = Release_Server|Any CPU
+		{07F5E73A-9CB6-44D9-9D74-16F3D493109C}.Debug_Server|Any CPU.ActiveCfg = Debug_Server|Any CPU
+		{07F5E73A-9CB6-44D9-9D74-16F3D493109C}.Debug_Server|Any CPU.Build.0 = Debug_Server|Any CPU
+		{07F5E73A-9CB6-44D9-9D74-16F3D493109C}.Debug_WebAssembly|Any CPU.ActiveCfg = Debug_WebAssembly|Any CPU
+		{07F5E73A-9CB6-44D9-9D74-16F3D493109C}.Debug_WebAssembly|Any CPU.Build.0 = Debug_WebAssembly|Any CPU
+		{07F5E73A-9CB6-44D9-9D74-16F3D493109C}.Debug|Any CPU.ActiveCfg = Debug_Server|Any CPU
+		{07F5E73A-9CB6-44D9-9D74-16F3D493109C}.Debug|Any CPU.Build.0 = Debug_Server|Any CPU
+		{07F5E73A-9CB6-44D9-9D74-16F3D493109C}.Re3lease_WebAssembly|Any CPU.ActiveCfg = Re3lease_WebAssembly|Any CPU
+		{07F5E73A-9CB6-44D9-9D74-16F3D493109C}.Re3lease_WebAssembly|Any CPU.Build.0 = Re3lease_WebAssembly|Any CPU
+		{07F5E73A-9CB6-44D9-9D74-16F3D493109C}.Release_Server|Any CPU.ActiveCfg = Release_Server|Any CPU
+		{07F5E73A-9CB6-44D9-9D74-16F3D493109C}.Release_Server|Any CPU.Build.0 = Release_Server|Any CPU
+		{07F5E73A-9CB6-44D9-9D74-16F3D493109C}.Release_WebAssembly|Any CPU.ActiveCfg = Release_WebAssembly|Any CPU
+		{07F5E73A-9CB6-44D9-9D74-16F3D493109C}.Release_WebAssembly|Any CPU.Build.0 = Release_WebAssembly|Any CPU
+		{07F5E73A-9CB6-44D9-9D74-16F3D493109C}.Release|Any CPU.ActiveCfg = Release_Server|Any CPU
+		{07F5E73A-9CB6-44D9-9D74-16F3D493109C}.Release|Any CPU.Build.0 = Release_Server|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

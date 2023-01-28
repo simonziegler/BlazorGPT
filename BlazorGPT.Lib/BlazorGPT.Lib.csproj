@@ -1,0 +1,92 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<Company>Dioptra Limited</Company>
+		<Version>2022-01-01--13-00-00--WIP</Version>
+		<RepositoryUrl>https://github.com/simonziegler/BlazorGPT</RepositoryUrl>
+		<PackageLicenseExpression>Commercial</PackageLicenseExpression>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageReleaseNotes></PackageReleaseNotes>
+		<NeutralLanguage>en</NeutralLanguage>
+		<Copyright>© Dioptra Limited. All rights reserved.</Copyright>
+		<Product>Blazor GPT Playground</Product>
+		<Configurations>Debug_Server;Debug_WebAssembly;Release_Server;Release_WebAssembly;Re3lease_WebAssembly</Configurations>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Server|AnyCPU'">
+		<DefineConstants>Debug;BLAZOR_SERVER</DefineConstants>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_WebAssembly|AnyCPU'">
+		<DefineConstants>Debug;BLAZOR_WEBASSEMBLY</DefineConstants>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Server|AnyCPU'">
+		<DefineConstants>Release;BLAZOR_SERVER</DefineConstants>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_WebAssembly|AnyCPU'">
+		<DefineConstants>Release;BLAZOR_WEBASSEMBLY</DefineConstants>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<AssemblyAttribute Include="BlazorGPT.Lib.BuildDateAttribute">
+			<_Parameter1>$([System.DateTime]::UtcNow.ToString("yyyy-MM-dd"))</_Parameter1>
+		</AssemblyAttribute>
+	</ItemGroup>
+
+	<ItemGroup>
+		<SupportedPlatform Include="browser" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Material.Blazor" Version="4.0.0-preview.10" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<InputStaticAssetsStyles Include="$(ProjectDir)WebAssets\**\*.scss;" />
+		<OutputStaticAssetsStyles Include="$(ProjectDir)wwwroot\css\dioptra.css;wwwroot\css\dioptra.min.css" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<UpToDateCheckInput Include="@(InputStaticAssetsStyles)" Set="Styles" />
+		<UpToDateCheckOutput Include="@(OutputStaticAssetsStyles)" Set="Styles" />
+	</ItemGroup>
+
+	<Target Name="CheckIfNpmExists" Inputs="@(InputStaticAssetsScripts);@(InputStaticAssetsStyles)" Outputs="@(OutputStaticAssetsScripts);@(OutputStaticAssetsStyles)" BeforeTargets="PreBuildEvent" AfterTargets="WWWRootFileCopy">
+	<!--<Target Name="CheckIfNpmExists" BeforeTargets="PreBuildEvent" AfterTargets="WWWRootFileCopy">-->
+		<Message Text="***** npm install" />
+		<Exec Command="npm install" ContinueOnError="true" StandardOutputImportance="low" StandardErrorImportance="low" LogStandardErrorAsError="false" IgnoreExitCode="true">
+			<Output TaskParameter="ExitCode" PropertyName="NpmReturnCode" />
+		</Exec>
+		<Message Text="***** 'npm install' return code was $(NpmReturnCode) (0 indicates npm is available)" />
+	</Target>
+
+	<Target Name="ErrorOutput" BeforeTargets="PreBuildEvent" AfterTargets="CheckIfNpmExists" Condition=" '$(NpmReturnCode)' != '0' ">
+		<Message Text="**********************************************************************************" />
+		<Message Text="**********************************************************************************" />
+		<Message Text="**********************************************************************************" />
+		<Message Text=" CSS and JS not built due to the lack of a proper development environment" />
+		<Message Text=" See https://material-blazor.com/docs/articles/DevelopmentEnvironment.html" />
+		<Message Text="**********************************************************************************" />
+		<Message Text="**********************************************************************************" />
+		<Message Text="**********************************************************************************" />
+	</Target>
+
+	<Target Name="BuildStyles" Inputs="@(InputStaticAssetsStyles)" Outputs="@(OutputStaticAssetsStyles)" BeforeTargets="PreBuildEvent" AfterTargets="CheckIfNpmExists" Condition=" '$(NpmReturnCode)' == '0' ">
+		<RemoveDir Directories="$(ProjectDir)wwwroot/css" />
+
+		<Message Importance="high" Text="***** npm install" />
+		<Exec Command="npm install" />
+
+		<Message Importance="high" Text="***** npm run build-theme" />
+		<Exec Command="npm run build-theme" />
+
+		<Message Importance="high" Text="***** npm run build-min-theme" />
+		<Exec Command="npm run build-min-theme" />
+	</Target>
+
+</Project>
